@@ -15,7 +15,8 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(32, 32, 32);
+  z-index: 1;
 }
 
 #navbar ul {
@@ -38,6 +39,7 @@ body {
   color: white;
   font-size: larger;
   font-weight: bold;
+  transition: 500ms;
 }
 
 #navbar a:hover {
@@ -52,13 +54,20 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(45deg, rgb(62, 155, 158), rgb(154, 80, 168));
+  overflow: clip;
 }
 
 #monitor {
-  width: 480px;
-  height: 340px;
-  background: linear-gradient(45deg,rgb(228, 171, 49) ,rgb(255, 229, 181));
+  min-width: 480px;
+  min-height: 340px;
+  background: linear-gradient(45deg,rgb(224, 171, 56) ,rgb(248, 192, 89));
   border-radius: 5px;
+  box-shadow: 2px 2px 8px rgb(49, 49, 49);
+  transition: 500ms;
+}
+
+#monitor:hover {
+  transform: scaleX(1.05) scaleY(1.05);
 }
 
 #screen {
@@ -72,33 +81,49 @@ body {
   margin-left: auto;
   margin-right: auto;
   color: rgb(0, 0, 0);
+
 }
 
 #keyboard {
-  width: 300px;
-  height: 100px;
+  min-width: 300px;
+  min-height: 100px;
   margin-top: 50px;
   background: linear-gradient(45deg, rgb(126, 126, 126),rgb(206, 206, 206));
   border-radius: 5px;
+  box-shadow: 2px 2px 8px rgb(49, 49, 49);
+  transition: 500ms;
+}
+
+#keyboard:hover {
+  transform: scaleX(1.05) scaleY(1.05);
 }
 
 #mug {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
   border-radius: 50%;
   width: 60px;
   height: 60px;
   background-color: white;
+  box-shadow: 2px 2px 8px rgb(49, 49, 49);
+  position: relative;
+  left: 300px;
+  bottom: 20px;
+  transition: 500ms;
 }
 
 #coffee {
-
   border-radius: 50%;
   width: 50px;
   height: 50px;
   background-color: rgb(61, 32, 18);
+  transform: scale(1);
+  transition: 500ms;
+}
+
+#mug:hover {
+  transform: scaleX(1.08) scaleY(1.1);
 }
 
 #welcome-section h1, p {
@@ -106,15 +131,22 @@ body {
   font-family: monospace;
 }
 
-#welcome-section h1 {
-  animation: hi 1.5s;
+#coffee-emoji {
+  font-family: sans-serif;
 }
 
-@keyframes hi {
-  50% {
-    transform: scaleX(1.5) scaleY(1.5);
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
   }
 }
+
 
 #projects {
   padding-top: 50px;
